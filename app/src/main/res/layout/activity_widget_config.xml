@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--layout that will help to configure the widget with the recipe selected from the spinner-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/MatchMatch">
+
+    <Spinner
+        android:id="@+id/recipe_spinner"
+        style="@style/WrapWrap"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/widget_spinner_margins"
+        android:layout_marginTop="@dimen/widget_spinner_margins" />
+
+    <Button
+        android:id="@+id/add_widget_button"
+        style="@style/WMatchHWrap"
+        android:layout_below="@+id/recipe_spinner"
+        android:layout_margin="@dimen/widget_spinner_margins"
+        android:background="@color/colorPrimary"
+        android:text="Select"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/text_title_size" />
+
+</RelativeLayout>

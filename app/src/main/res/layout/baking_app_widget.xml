@@ -1,0 +1,20 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF9C4"
+    android:padding="@dimen/widget_margin">
+
+    <!--<ImageView-->
+        <!--style="@style/MatchMatch"-->
+        <!--android:background="@drawable/baker" />-->
+
+    <ListView
+        android:id="@+id/ingredients_list_widget"
+        style="@style/WMatchHWrap"
+        android:layout_margin="@dimen/ten_dp_margin"
+        android:divider="@color/colorPrimaryDark"
+        android:dividerHeight="@dimen/divider_height"
+        android:focusableInTouchMode="true" />
+
+
+</RelativeLayout>
