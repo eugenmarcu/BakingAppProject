@@ -225,6 +225,27 @@ public class StepFragment extends Fragment {
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        if(currentStep!= null) {
+            String videoUrl = currentStep.getVideoURL();
+            initializePlayer(Uri.parse(videoUrl));
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (player != null) {
+            playBackPosition = player.getCurrentPosition();
+            currentWindow = player.getCurrentWindowIndex();
+            releasePlayer();
+        }
+    }
+
+
+
+    @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putParcelable(STEP_KEY, currentStep);

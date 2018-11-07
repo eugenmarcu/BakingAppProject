@@ -12,28 +12,26 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static android.support.test.espresso.Espresso.onView;
-import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
 import static android.support.test.espresso.matcher.ViewMatchers.hasFocus;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
-import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static org.hamcrest.core.AllOf.allOf;
 
 @RunWith(AndroidJUnit4.class)
-public class RecyclerViewClickTest {
+public class CheckRecipesLoadedTest {
 
-    private final String RECIPE = "Cheesecake";
-    private final int CHEESECAKE_POSITION = 3;
+    private final String[] RECIPES = {"Nutella Cake", "Brownies", "Yellow Cake", "Cheesecake"};
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityRule = new ActivityTestRule<>(
             MainActivity.class);
 
     @Test
-    public void clickOnRecyclerView() {
-        onView(allOf(ViewMatchers.withId(R.id.rv_list), hasFocus())).perform(RecyclerViewActions.scrollToPosition(CHEESECAKE_POSITION));
-        onView(withText(RECIPE)).perform(click());
+    public void checkRecipes() {
+        onView(allOf(ViewMatchers.withId(R.id.rv_list), hasFocus())).perform(RecyclerViewActions.scrollToPosition(1));
 
-        onView(withId(R.id.recipe_name)).check(matches(withText(RECIPE)));
+        onView(withText(RECIPES[1])).check(matches(isDisplayed()));
     }
+
 }
