@@ -35,6 +35,7 @@ public class TabletViewTest {
 
     @Test
     public void TabletView() {
+        
         onView(allOf(ViewMatchers.withId(R.id.rv_list), hasFocus()))
                 .perform(RecyclerViewActions.scrollToPosition(0));
         onView(withText("Cheesecake")).perform(click());
